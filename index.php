@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        .warning-box{
+            height: 20px;
+            width:200px;
+            color: #fff
+        }
+    </style>
 </head>
 <body>
-   <span id="done"></span>
+  <div class="warning-box">
+    <span id="done"></span>
    <span id="result"></span>
+  </div>
+  
     <form action="" method="post" id="isertData">
         Name: <input type="text" name="name" id="name">
         Comment: <input type="text" name="comment" id="comment">
@@ -23,7 +33,7 @@
                 var name = $('#name').val();
                 var comment = $('#comment').val();
 
-                if(name != '' || comment !=''){
+                if(name != '' && comment !=''){
                     $.ajax({
                         type: "POST",
                         data:{
@@ -36,15 +46,17 @@
                         success: function(responseText){
                             if(responseText==1){
                                 $("#done").html("Successfully inserted !");
+                                // $(".warning-box").css("background-color","green");
+                                
                             }else {
                                 $("#result").html(responseText);
-
                             }
                         }
 
                     });
                 }else{
                     $("#result").text("Fill up each field !!");
+                    $(".warning-box").css("background-color","red");
                     setTimeout(function(){
                         $('#result').fadeOut();
 //                            location.reload();
