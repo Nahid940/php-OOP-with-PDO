@@ -1,6 +1,6 @@
 
 <?php
-include ("Comment.php");
+include ("../comment.php");
     if(isset($_POST['done']))
     {
         $Mycomment=new Comment();
@@ -12,9 +12,9 @@ include ("Comment.php");
         
         
         if($Mycomment->insertComment()){
-            echo "Data inserted";
+            echo 1;
         }
-        
+
     }
 
 ?>

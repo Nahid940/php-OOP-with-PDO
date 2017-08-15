@@ -3,47 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        .warning-box{
-            height: 20px;
-            width:200px;
-            color: #fff
-        }
-    </style>
 </head>
 <body>
-  <div class="warning-box">
-    <span id="done"></span>
-   <span id="result"></span>
-  </div>
-  
-    <form action="" method="post" id="isertData">
-        Name: <input type="text" name="name" id="name">
-        Comment: <input type="text" name="comment" id="comment">
-       
+     
+     
+      
+    <form action="" method="post" id="insertPerson">
+        Name: <input type="text" name="Personname" id="Personname">
+        Age: <input type="text" name="age" id="age" max="100">
         <button name="submit"> Insert</button>
     </form>
-
-    
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<!--    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-    <script>
-       $(document).ready(function(){
-            $('#isertData').submit(function(e){
+      
+      
+       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+       <script>
+           
+        $(document).ready(function(){
+   
+           $('#insertPerson').submit(function(e){
                 e.preventDefault();
-                var name = $('#name').val();
-                var comment = $('#comment').val();
+                var name = $('#Personname').val();
+                var age = $('#age').val();
+          
 
-                if(name != '' && comment !=''){
+                if(name != '' && age !=''){
                     $.ajax({
                         type: "POST",
                         data:{
                             done:1,
                             name: name,
-                            comment: comment,
+                            age: age
                         },
-                        url: "insertFile/commentInsert.php",
-
+                        
+                        url: "insertFile/insertPerson.php",
+                        
                         success: function(responseText){
                             if(responseText==1){
                                 $("#done").html("Successfully inserted !");
@@ -68,11 +61,9 @@
                 return false;
             });
            
-
+           
+           
         });
-</script>
+    </script>
 </body>
-
-
 </html>
-

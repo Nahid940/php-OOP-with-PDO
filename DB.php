@@ -14,7 +14,6 @@ include("config.php");
                 }
             }
             return self::$pdo;
-            
         }
        
        

@@ -24,7 +24,6 @@ include ('DB.php');
              
              //access static property of a class eith the class name + (::)sign+  propery DB class+ :: static method myQueryPrepare
              $stmt=DB::myQueryPrepare($sql);
-             
              $stmt->bindParam(':name',$this->name);
              $stmt->bindParam(':comment',$this->comment);
              
