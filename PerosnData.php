@@ -7,7 +7,7 @@
 <body>
      
      
-      
+      <span id="done"></span>
     <form action="" method="post" id="insertPerson">
         Name: <input type="text" name="Personname" id="Personname">
         Age: <input type="text" name="age" id="age" max="100">
@@ -35,7 +35,7 @@
                             age: age
                         },
                         
-                        url: "insertFile/insertPerson.php",
+                        url: "insertPerson.php",
                         
                         success: function(responseText){
                             if(responseText==1){

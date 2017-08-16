@@ -1,5 +1,5 @@
 <?php
-include ("../person.php");
+include ("person.php");
     if(isset($_POST['done']))
     {
         $person=new Person();

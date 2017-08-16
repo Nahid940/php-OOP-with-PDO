@@ -13,11 +13,12 @@
 </head>
 <body>
   <div class="warning-box">
-    <span id="done"></span>
    <span id="result"></span>
   </div>
   
-    <form action="" method="post" id="isertData">
+   <span id="done"></span>
+ 
+    <form action="" method="post" id="insertData">
         Name: <input type="text" name="name" id="name">
         Comment: <input type="text" name="comment" id="comment">
        
@@ -29,7 +30,7 @@
 <!--    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
     <script>
        $(document).ready(function(){
-            $('#isertData').submit(function(e){
+            $('#insertData').submit(function(e){
                 e.preventDefault();
                 var name = $('#name').val();
                 var comment = $('#comment').val();
@@ -42,18 +43,18 @@
                             name: name,
                             comment: comment,
                         },
-                        url: "insertFile/commentInsert.php",
+//                        url: "insertFile/commentInsert.php",
+                        url: "commentInsert.php",
 
                         success: function(responseText){
                             if(responseText==1){
                                 $("#done").html("Successfully inserted !");
-                                // $(".warning-box").css("background-color","green");
+                                 $("#done").css("background-color","green");
                                 
                             }else {
                                 $("#result").html(responseText);
                             }
                         }
-
                     });
                 }else{
                     $("#result").text("Fill up each field !!");
