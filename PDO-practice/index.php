@@ -1,3 +1,7 @@
+<?php
+include ('user.php');
+$user=new user();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +18,7 @@
 </head>
 <body>
     
-    <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-md-6">
       <h1>Data insert</h1>
@@ -36,6 +40,40 @@
           <button  type ="submit" class="btn btn-success" name="submit">Submit</button>
     </form>
     </div>
+  </div>
+  
+  <div class="row">
+      <div class="table-responsive">
+          <table class="table">
+              <tr>
+                  <th>Sl </th>
+                  <th>Name </th>
+                  <th>Age </th>
+                  <th>Address </th>
+                  <th>Action</th>
+              </tr>
+              <?php 
+              $i=0;
+              foreach($user->SelectUser() as $key => $value){
+                  $i++;
+    
+?>
+         <tr>
+             <td><?php echo $i?></td>
+             <td><?php echo $value['name']?></td>
+             <td><?php echo $value['age']?></td>
+             <td><?php echo $value['address']?></td>
+             <td>
+                 <form action="">
+                     <input type="submit" value="Edit" name="submit" class="btn btn-info"> |
+                     <input type="submit" value="Update" name="submit" class="btn btn-danger"> 
+
+                 </form>
+             </td>
+         </tr>
+         <?php }?>
+          </table>
+      </div>
   </div>
  
 </div>

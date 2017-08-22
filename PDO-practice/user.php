@@ -30,10 +30,15 @@ class user{
         return $stmt->execute();
     }
     
-    public function sessionName(){
-         $sessionName=$_SESSION["$this->name"];
-        return $sessionName;
+    public function SelectUser(){
+        $sql="Select * from user";
+        //$stmt=prepare($sql);
+         $stmt=DB::myQuery($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
+    
+ 
     
     //Object iteration
 //    public function iterationInner(){
